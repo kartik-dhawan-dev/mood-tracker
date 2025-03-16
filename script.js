@@ -92,8 +92,25 @@ const updateOrCreateMoodForCurrentDate = (mood) => {
 const renderTimeline = (currentDate) => {
   const timelineContainer = document.getElementById(TIMELINE_CONTAINER_ID);
   const noOfDaysInCurrentMonth = getNoOfDaysInMonth(currentDate);
+  const firstDayOfMonth = new Date(
+    getYearFromDate(currentDate),
+    getMonthFromDate(currentDate) - 1,
+    1
+  ).getDay();
 
   timelineContainer.innerHTML = "";
+
+  DAYS_OF_WEEK.forEach((day) => {
+    const dayHeader = document.createElement("div");
+    dayHeader.textContent = day;
+    dayHeader.classList.add(...DAY_HEADER_STYLE_CLASSES);
+    timelineContainer.appendChild(dayHeader);
+  });
+
+  for (let i = 0; i < firstDayOfMonth; i++) {
+    const emptyCell = document.createElement("div");
+    timelineContainer.appendChild(emptyCell);
+  }
 
   for (let day = 1; day <= noOfDaysInCurrentMonth; day++) {
     const dayContainer = document.createElement("div");
@@ -134,7 +151,31 @@ const renderTimeline = (currentDate) => {
   }
 };
 
+const updateCalendar = (date) => {
+  const currentMonthElement = document.getElementById(CURRENT_MONTH_ID);
+
+  const currentMonthName = MONTH_NAMES[date.getMonth()];
+  const currentYear = getYearFromDate(date);
+
+  currentMonthElement.textContent = `${currentMonthName} ${currentYear}`;
+
+  renderTimeline(date);
+};
+
+const previousMonthButton = document.getElementById(PREVIOUS_MONTH_BUTTON_ID);
+
+previousMonthButton.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  updateCalendar(currentDate);
+});
+
+const nextMonthButton = document.getElementById(NEXT_MONTH_BUTTON_ID);
+nextMonthButton.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  updateCalendar(currentDate);
+});
+
 const currentDate = getCurrentDate();
 
 renderMoodEmojis();
-renderTimeline(currentDate);
+updateCalendar(currentDate);
