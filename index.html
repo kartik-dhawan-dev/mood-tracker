@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex flex-col w-screen h-screen font-mono bg-gray-900 text-gray-300">
+    <header class="flex w-full p-6 bg-gray-800 shadow-md rounded-b-md justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-100">Mood Tracker</h1>
+    </header>
+
+    <main class="h-full w-full flex flex-col text-2xl gap-4 p-6">
+        <div class="flex flex-col gap-4 p-4 border-2">
+            <p class="text-xl">How was your day?</p>
+            <div id="mood-container" class="flex px-2 flex-wrap gap-4"></div>
+        </div>
+
+        <div class="flex flex-col p-4 gap-8 border-2">
+            <p class="text-xl">Your Mood Throughout the Month:</p>
+            <div id="timeline-container" class="h-full w-full overflow-visible gap-2 
+                grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
+            </div>
+        </div>
+    </main>
+
+    <script src="constants.js"></script>
+    <script src="mood-state.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
