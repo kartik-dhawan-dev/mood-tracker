@@ -38,6 +38,9 @@ const MOOD_AND_EMOJI = [
 
 const MOOD_CONTAINER_ID = "mood-container";
 const TIMELINE_CONTAINER_ID = "timeline-container";
+const PREVIOUS_MONTH_BUTTON_ID = "prev-month";
+const NEXT_MONTH_BUTTON_ID = "next-month";
+const CURRENT_MONTH_ID = "current-month";
 
 const MOOD_EMOJI_CONTAINER_STYLE_CLASSES = [
   "flex",
@@ -83,6 +86,10 @@ const DAY_BOX_STYLE_CLASSES = [
   "transition",
   "duration-300",
   "ease-in-out",
+  "text-sm",
+  "sm:text-base",
+  "md:text-lg",
+  "lg:text-xl",
 ];
 
 const CALENDER_MOOD_EMOJI_STYLE_CLASSES = [
@@ -91,4 +98,30 @@ const CALENDER_MOOD_EMOJI_STYLE_CLASSES = [
   "md:text-lg",
   "lg:text-xl",
   "xl:text-2xl",
+];
+
+const DAYS_OF_WEEK = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+const DAY_HEADER_STYLE_CLASSES = [
+  "text-center",
+  "font-bold",
+  "text-sm",
+  "sm:text-base",
+  "md:text-lg",
+  "lg:text-xl",
+];
+
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
